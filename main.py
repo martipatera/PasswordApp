@@ -13,10 +13,16 @@ filename = "MyPasswords.txt"
 def Main():
     
     
+    
     for buttons in window.winfo_children():
         buttons.destroy()
+        
+    mainmenu = tk.Label(window, text="PasswordApp", font=("Arial", 50))
+    mainmenu.pack(pady=(35,20))
+    mainmenu.configure(background="#478CCF",foreground="#FFFFFF" )
+    
     showmypasswords = tk.Button(window, text="My Passwords", height=5, width=25, command=MyPasswords)
-    showmypasswords.pack(pady=(200, 50))
+    showmypasswords.pack(pady=(65, 50))
 
     charactersandnumbers = tk.Button(window, text="Generete Characters and Numbers", height=5, width=25, command=CharactersAndNumbers)
     charactersandnumbers.pack(pady=50)
@@ -33,7 +39,7 @@ def MyPasswords():
         buttons.destroy()
         
     text_box = tk.Text(window, wrap='word', height=5, width=50, font=myfont, bg="#ffffff", fg="#000000")
-    text_box.pack(pady=50)
+    text_box.pack(pady=(200,5))
     
     
         
@@ -41,7 +47,7 @@ def MyPasswords():
     if os.path.exists(filename):
         if os.path.getsize(filename) == 0:
             text = tk.Label(window, text="No Passwords Yet!")
-            text.pack(pady=10)
+            text.pack()
 
         else:
             with open(filename, "r") as file:
@@ -65,7 +71,7 @@ def MyPasswords():
         
         
     textpasswords = tk.Label(window, text="Note: To delete password must delete password in .txt and save a file")
-    textpasswords.pack(pady=10)
+    textpasswords.pack(pady=(50,5))
     
     mainmenubutton = tk.Button(window, text="Main Menu",command=Main, height=5, width=50)
     mainmenubutton.pack()
@@ -79,16 +85,17 @@ def CharactersAndNumbers():
     for buttons in window.winfo_children():
         buttons.destroy()
     
-    
+    enter = tk.Label(window, text="Please enter a passsword name:")
+    enter.pack(pady=(50,0))
     passwordname = tk.Text(window, width=30,height=1,bg="#ffffff", highlightbackground="#000000", highlightthickness=1,fg="#000000", font=myfont)
-    passwordname.pack(pady=50)
+    passwordname.pack(pady=(0,50))
     
     
     genereatepassword = tk.Button(window, text="Generate", width=25, height=5, command=GeneratePasswordNums)
     genereatepassword.pack()
     
     mainmenubutton = tk.Button(window, text="Main Menu",command=Main, width=50, height=5)
-    mainmenubutton.pack()
+    mainmenubutton.pack(pady=50)
     
  
 
@@ -101,15 +108,18 @@ def CharactersNumbersAndSymbols():
     
     for buttons in window.winfo_children():
         buttons.destroy()
+        
+    enter = tk.Label(window, text="Please enter a passsword name:")
+    enter.pack(pady=(50,0))
     
     passwordname = tk.Text(window, width=30,height=1, bg="#ffffff", highlightbackground="#000000", highlightthickness=1, fg="#000000",font=myfont)
-    passwordname.pack(pady=50)
+    passwordname.pack(pady=(0,50))
     
     genereatepassword = tk.Button(window, text="Generate", width=25, height=5, command=GeneratePasswordSym)
     genereatepassword.pack()
     
     mainmenubutton = tk.Button(window, text="Main Menu",command=Main, width=50, height=5)
-    mainmenubutton.pack()
+    mainmenubutton.pack(pady=50)
     
  
 def GeneratePasswordNums():
@@ -207,6 +217,7 @@ window = tk.Tk() #vytvori zakladni okno
 window.title("Password App")
 window.geometry("1200x900")
 myfont = tkFont.Font(family="Ariel", size= 15)
+window.configure(background="#478CCF")
 
 
 Main()
