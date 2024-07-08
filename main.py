@@ -201,7 +201,7 @@ charactersnumberssymbols = ['!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '
 
 window = tk.Tk() #vytvori zakladni okno
 window.title("Password App")
-window.attributes('-fullscreen', True)
+window.geometry("1200x900")
 myfont = tkFont.Font(family="Ariel", size= 15)
 
 
